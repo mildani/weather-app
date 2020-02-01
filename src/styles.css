@@ -1,0 +1,60 @@
+form#search-city {
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 10px;
+}
+header {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+div {
+  text-align: center;
+}
+
+div#current-city {
+  margin-bottom: 40px;
+}
+
+.time-stamp {
+  font-weight: 600;
+}
+.city {
+  color: #347474;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.weather-icon {
+  color: #347474;
+  font-size: 40px;
+}
+
+.temperature {
+  font-weight: 600;
+  font-size: 18px;
+}
+
+#temp-button,
+#fahrenheit-button,
+#celsius-button {
+  vertical-align: text-top;
+  font-size: 12px;
+}
+
+#fahrenheit-button,
+#celsius-button {
+  color: blueviolet;
+  text-decoration: underline;
+  border: none;
+  background: none;
+}
+
+#button-current-location {
+  display: block;
+  font-size: 10px;
+}
+
+button:hover {
+  cursor: pointer;
+}
