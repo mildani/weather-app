@@ -28,13 +28,10 @@ function showWeather(response) {
   document.querySelector("#main-icon").setAttribute("alt", response.data.weather[0].description);
 }
 
-
-
 function getTemperature(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#searched-city");
   if (searchInput.value) {
-    //function only works if there is a value on the searchInput
     let city = searchInput.value;
     let apiKey = "dc3cada4523181d62d387960cea623b8";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
@@ -42,26 +39,20 @@ function getTemperature(event) {
   }
 }
 
-
-
 function getCurrentTemperature(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
   let apiKey = "dc3cada4523181d62d387960cea623b8";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${apiKey}`;
-  axios.get(`${apiUrl}`).then(showTemperature);
-  axios.get(`${apiUrl}`).then(overwriteCurrentCity);
+  axios.get(`${apiUrl}`).then(showWeather);
 }
 
 function getCurrentLocation() {
   navigator.geolocation.getCurrentPosition(getCurrentTemperature);
 }
 
-//Listen for form submission or current location request
-
-let form = document.querySelector("#search-city");
+let form = document.querySelector("#search-city-form");
 form.addEventListener("submit", getTemperature);
-
 
 let button = document.querySelector("#button-current-location");
 button.addEventListener("click", getCurrentLocation);
