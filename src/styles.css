@@ -52,14 +52,14 @@ div#current-city {
 }
 
 .temperature {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 24px;
 }
 
 #temp-button,
 #fahrenheit-button,
 #celsius-button {
-  vertical-align: text-top;
+vertical-align: +26px;
   font-size: 12px;
 }
 
