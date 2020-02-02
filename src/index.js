@@ -1,9 +1,11 @@
-//Display the temperature from the weather API response
+//Display the weather conditions (and city) from the weather API response
 
-function showTemperature(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let temperatureElement = document.querySelector("#temperature-value");
-  temperatureElement.innerHTML = temperature;
+function showWeather(response) {
+  document.querySelector("#city-display").innerHTML = response.data.name;
+  document.querySelector("#temperature-value").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);
+  document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#weather-description-display").innerHTML = response.data.weather[0].main;
 }
 
 //Display city name and receive temperature based on form input
@@ -26,7 +28,7 @@ function getTemperature(event) {
     let city = searchInput.value;
     let apiKey = "dc3cada4523181d62d387960cea623b8";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-    axios.get(`${apiUrl}`).then(showTemperature);
+    axios.get(`${apiUrl}`).then(showWeather);
   }
 }
 
