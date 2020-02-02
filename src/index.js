@@ -28,17 +28,20 @@ function showWeather(response) {
   document.querySelector("#main-icon").setAttribute("alt", response.data.weather[0].description);
 }
 
-function getTemperature(event) {
+function getTemperature(city) {
+if (city) {
+  let apiKey = "dc3cada4523181d62d387960cea623b8";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
+  axios.get(`${apiUrl}`).then(showWeather);
+}}
+
+function handleSubmit(event) {
   event.preventDefault();
-  let searchInput = document.querySelector("#searched-city");
-  if (searchInput.value) {
-    let city = searchInput.value;
-    let apiKey = "dc3cada4523181d62d387960cea623b8";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
-    axios.get(`${apiUrl}`).then(showWeather);
-  }
+  let searchInput = document.querySelector("#searched-city").value;
+  getTemperature(searchInput);
 }
 
+  
 function getCurrentTemperature(position) {
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -52,7 +55,9 @@ function getCurrentLocation() {
 }
 
 let form = document.querySelector("#search-city-form");
-form.addEventListener("submit", getTemperature);
+form.addEventListener("submit", handleSubmit);
 
 let button = document.querySelector("#button-current-location");
 button.addEventListener("click", getCurrentLocation);
+
+getTemperature("New York");
