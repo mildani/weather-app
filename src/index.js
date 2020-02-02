@@ -22,8 +22,10 @@ function showWeather(response) {
   document.querySelector("#temperature-value").innerHTML = Math.round(response.data.main.temp);
   document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
-  document.querySelector("#weather-description-display").innerHTML = response.data.weather[0].main;
+  document.querySelector("#weather-description-display").innerHTML = response.data.weather[0].description;
   document.querySelector("#time-stamp-display").innerHTML = formatDate(response.data.dt*1000);
+  document.querySelector("#main-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  document.querySelector("#main-icon").setAttribute("alt", response.data.weather[0].description);
 }
 
 
