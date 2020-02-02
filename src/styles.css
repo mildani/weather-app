@@ -9,6 +9,16 @@
   color: #878787;
 }
 
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+i {
+  display:inline;
+}
+
 form#search-city {
   text-align: left;
   margin-bottom: 10px;
@@ -36,9 +46,9 @@ div#current-city {
   font-size: 25px;
 }
 
-.weather-icon {
+.temperature-display {
   color: #347474;
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .temperature {

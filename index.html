@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <div class=container id="weather-app-page">
     <div class="container" id="app-container">
     <header>
       <form id="search-city">
@@ -30,13 +31,17 @@
     <div class="city display" id="city-display">
       Amsterdam
   </div>
-  <div class="weather-icon display">
+  <div class="temperature-display">
 <i class="fas fa-cloud-rain"></i>
-  </div>
-<div class="temperature display">
   <span id="temperature-value">13</span><button id="celsius-button">ºC</button><span id="temp-button">|</span><button id="fahrenheit-button">ºF</button>
 </div>
-
+<div>
+  <ul>
+    <li>Precipitation: 0</li>
+    <li>Humidity: 6%</li>
+    <li>Wind: 5km/h</li>
+  </ul>
+</div>
 </div>
 <div id="five-day-forecast">
   <div class="row">
@@ -65,9 +70,10 @@
     <div class="col">16ºC</div>
   </div>
 </div>
+</div>
 <small>
-<a href="https://github.com/mildani/weather-app" target="_blank">Open-source code</a> by mildani </small>
-</div></div>
+  <a href="https://github.com/mildani/weather-app" target="_blank">Open-source code</a> by mildani </small>
+</div>
 
     <script src="src/index.js"></script>
   </body>
