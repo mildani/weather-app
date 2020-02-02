@@ -19,7 +19,8 @@ return `${weekday}, ${day} ${month}, ${hours}:${minutes}`;
 
 function showWeather(response) {
   document.querySelector("#city-display").innerHTML = response.data.name;
-  document.querySelector("#temperature-value").innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+  document.querySelector("#temperature-value").innerHTML = Math.round(celsiusTemperature);
   document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#weather-description-display").innerHTML = response.data.weather[0].description;
@@ -54,10 +55,35 @@ function getCurrentLocation() {
   navigator.geolocation.getCurrentPosition(getCurrentTemperature);
 }
 
+function displayCelsiusTemperature(event){
+  event.preventDefault();
+  celsiusButton.classList.add("active");
+  fahrenheitButton.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature-value");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  fahrenheitButton.classList.add("active");
+  celsiusButton.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature-value");
+  let fahrenheitTemperature = (celsiusTemperature * 9)/5+32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("#search-city-form");
 form.addEventListener("submit", handleSubmit);
 
 let button = document.querySelector("#button-current-location");
 button.addEventListener("click", getCurrentLocation);
+
+let celsiusButton = document.querySelector("#celsius-button");
+celsiusButton.addEventListener("click", displayCelsiusTemperature);
+
+let fahrenheitButton = document.querySelector("#fahrenheit-button");
+fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
 
 getTemperature("New York");

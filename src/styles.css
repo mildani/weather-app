@@ -46,10 +46,14 @@ div#current-city {
   font-size: 25px;
 }
 
+
+
 .temperature-display {
   color: #347474;
   font-size: 50px;
 }
+
+
 
 .temperature {
   font-weight: 400;
@@ -67,6 +71,8 @@ vertical-align: +26px;
   font-size: 12px;
 }
 
+
+
 #fahrenheit-button,
 #celsius-button {
   color: blueviolet;
@@ -75,11 +81,14 @@ vertical-align: +26px;
   background: none;
 }
 
+#celsius-button.active, #fahrenheit-button.active {
+  color: #878787;
+  text-decoration: none;
+  border:none;
+  background: none;
+}
+
 #button-current-location {
   display: block;
   font-size: 10px;
-}
-
-button:hover {
-  cursor: pointer;
 }
