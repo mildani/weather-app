@@ -56,6 +56,10 @@ div#current-city {
   font-size: 24px;
 }
 
+#weather-description-display {
+  text-transform:capitalize;
+}
+
 #temp-button,
 #fahrenheit-button,
 #celsius-button {
